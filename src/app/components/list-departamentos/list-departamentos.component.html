@@ -1,0 +1,27 @@
+<h1>Lista de Departamentos</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID Departamento</th>
+        <th>Nombre</th>
+        <th>Localidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(departamento of departamentos; track departamento) {
+        <tr>
+          <td>{{ departamento.idDepartamento }}</td>
+          <td>{{ departamento.nombre }}</td>
+          <td>{{ departamento.localidad }}</td>
+          <td>
+            <a class="btn btn-warning" [routerLink]="['/edit', departamento.idDepartamento]">Editar</a>
+            <!-- <a (click)="eliminarDepartamento(departamento.idDepartamento)">Eliminar</a> -->
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
