@@ -1,0 +1,96 @@
+/* Estilo general de la tabla */
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para una mejor profundidad */
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #007bff; /* Color de fondo azul para los encabezados */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase; /* Mayúsculas en los encabezados */
+}
+
+.table td {
+  background-color: #f9f9f9; /* Fondo gris claro en las celdas */
+  color: #333;
+}
+
+/* Efectos Hover para las filas */
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer; /* Cambiar cursor para indicar que es interactivo */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f7f7f7; /* Color alternativo para las filas pares */
+}
+
+/* Estilo de los botones */
+.btn {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-radius: 25px; /* Bordes redondeados para los botones */
+  padding: 8px 15px;
+}
+
+.btn-outline-primary {
+  border: 2px solid #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-outline-danger {
+  border: 2px solid #dc3545;
+  color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-outline-secondary {
+  border: 2px solid #6c757d;
+  color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Espaciado entre los botones */
+.m-1 {
+  margin: 5px;
+}
+
+/* Estilo de la cabecera */
+thead.thead-dark {
+  background-color: #343a40; /* Fondo oscuro para la cabecera */
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+/* Hacer que la tabla sea más flexible en pantallas pequeñas */
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+}

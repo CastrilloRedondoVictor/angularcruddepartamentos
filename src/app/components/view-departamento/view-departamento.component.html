@@ -1,0 +1,41 @@
+<div class="container p-5 my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="text-primary">Detalles del Departamento</h1>
+  </div>
+
+  <!-- Mensaje de carga mientras se obtiene el departamento -->
+  <div *ngIf="!departamento">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verifica si el departamento existe -->
+  <div *ngIf="departamento && departamento.idDepartamento != 0">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h4>{{ departamento.nombre }}</h4>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">ID Departamento: {{ departamento.idDepartamento }}</h5>
+        <p class="card-text"><strong>Localidad:</strong> {{ departamento.localidad }}</p>
+      </div>
+    </div>
+    <!-- Botón de edición -->
+    <a class="btn btn-outline-warning mt-3" [routerLink]="['/edit', departamento.idDepartamento]">
+      <i class="fas fa-edit"></i> Editar Departamento
+    </a>
+  </div>
+
+  <!-- Si no se encuentra el departamento -->
+  <div *ngIf="departamento && departamento.idDepartamento == 0">
+    <p class="text-danger">Departamento no encontrado.</p>
+  </div>
+
+  <!-- Botón de Regresar -->
+  <a class="btn btn-outline-secondary mt-2" [routerLink]="['/']">
+    <i class="fas fa-arrow-left"></i> Regresar a la lista
+  </a>
+</div>

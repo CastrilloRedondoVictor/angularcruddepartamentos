@@ -1,41 +1,74 @@
-<h1>Nuevo departamento</h1>
+<div class="container p-5 my-5">
+  <h1 class="text-center text-primary mb-4">Nuevo Departamento</h1>
 
-<form (ngSubmit)="postDepartamento()" #departamentoForm="ngForm">
-  <div class="form-group">
-    <label for="idDepartamento">ID Departamento</label>
-    <input
-      type="number"
-      id="idDepartamento"
-      class="form-control"
-      [(ngModel)]="departamento.idDepartamento"
-      name="idDepartamento"
-      required
-    />
-  </div>
+  <form (ngSubmit)="postDepartamento()" #departamentoForm="ngForm" class="p-4 border rounded shadow-sm bg-light">
+    <!-- Campo de ID Departamento -->
+    <div class="form-group">
+      <label for="idDepartamento" class="font-weight-bold">ID Departamento</label>
+      <input
+        type="number"
+        id="idDepartamento"
+        class="form-control"
+        [(ngModel)]="departamento.idDepartamento"
+        name="idDepartamento"
+        placeholder="Ingresa el ID del departamento"
+        required
+        #idDepartamento="ngModel"
+        [ngClass]="{'is-invalid': idDepartamento.invalid && idDepartamento.touched}"
+      />
+      <div *ngIf="idDepartamento.invalid && idDepartamento.touched" class="invalid-feedback">
+        <small>El ID del departamento es obligatorio.</small>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <label for="nombre">Nombre</label>
-    <input
-      type="text"
-      id="nombre"
-      class="form-control"
-      [(ngModel)]="departamento.nombre"
-      name="nombre"
-      required
-    />
-  </div>
+    <!-- Campo de Nombre -->
+    <div class="form-group">
+      <label for="nombre" class="font-weight-bold">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        class="form-control"
+        [(ngModel)]="departamento.nombre"
+        name="nombre"
+        placeholder="Ingresa el nombre del departamento"
+        required
+        #nombre="ngModel"
+        [ngClass]="{'is-invalid': nombre.invalid && nombre.touched}"
+      />
+      <div *ngIf="nombre.invalid && nombre.touched" class="invalid-feedback">
+        <small>El nombre es obligatorio.</small>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <label for="localidad">Localidad</label>
-    <input
-      type="text"
-      id="localidad"
-      class="form-control"
-      [(ngModel)]="departamento.localidad"
-      name="localidad"
-      required
-    />
-  </div>
+    <!-- Campo de Localidad -->
+    <div class="form-group">
+      <label for="localidad" class="font-weight-bold">Localidad</label>
+      <input
+        type="text"
+        id="localidad"
+        class="form-control"
+        [(ngModel)]="departamento.localidad"
+        name="localidad"
+        placeholder="Ingresa la localidad del departamento"
+        required
+        minlength="3"
+        #localidad="ngModel"
+        [ngClass]="{'is-invalid': localidad.invalid && localidad.touched}"
+      />
+      <div *ngIf="localidad.invalid && localidad.touched" class="invalid-feedback">
+        <small *ngIf="localidad.errors?.['required']">La localidad es obligatoria.</small>
+        <small *ngIf="localidad.errors?.['minlength']">La localidad debe tener al menos 3 caracteres.</small>
+      </div>
+    </div>
 
-  <button type="submit" class="btn btn-primary">Agregar Departamento</button>
-</form>
+    <!-- Botones de Acción -->
+    <div class="d-flex justify-content-between mt-4">
+      <button type="submit" class="btn btn-primary" [disabled]="departamentoForm.invalid">
+        <i class="fas fa-plus-circle"></i> Agregar Departamento
+      </button>
+      <a type="button" class="btn btn-secondary" [routerLink]="['']">
+        <i class="fas fa-times-circle"></i> Cancelar
+      </a>
+    </div>
+  </form>
+</div>

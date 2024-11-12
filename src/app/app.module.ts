@@ -10,6 +10,7 @@ import { PutDepartamentoComponent } from './components/put-departamento/put-depa
 import { DepartamentosService } from './services/departamentos.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewDepartamentoComponent } from './components/view-departamento/view-departamento.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,14 @@ import { HttpClientModule } from '@angular/common/http';
     ListDepartamentosComponent,
     MenuComponent,
     PostDepartamentoComponent,
-    PutDepartamentoComponent
+    PutDepartamentoComponent,
+    ViewDepartamentoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [DepartamentosService],
   bootstrap: [AppComponent]

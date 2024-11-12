@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Departamento } from '../../models/Departamento';
 import { DepartamentosService } from '../../services/departamentos.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-put-departamento',
@@ -26,6 +27,10 @@ export class PutDepartamentoComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id']
+    this.getDepartamento(id)
+  }
+
+  getDepartamento(id: number){
     this._departamentosService.getDepartamento(id).subscribe(response => {
       this.departamento = response
     })
@@ -33,9 +38,9 @@ export class PutDepartamentoComponent implements OnInit {
 
 
   putDepartamento() {
-    console.log(this.departamento)
     if (this.departamento.idDepartamento && this.departamento.nombre && this.departamento.localidad) {
-      this._departamentosService.postDepartamento(this.departamento).subscribe(() => {
+      this._departamentosService.putDepartamento(this.departamento).subscribe(() => {
+        Swal.fire('¡Editado!', 'El departamento ha sido editado.', 'success');
         this.router.navigate([''])
       })
     } else {

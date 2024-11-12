@@ -1,0 +1,26 @@
+/* Estilo para mejorar la apariencia de los botones */
+.btn-outline-warning {
+  border-color: #ffc107;
+  color: #ffc107;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.btn-outline-secondary {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+/* Estilo para el mensaje de error */
+.text-danger {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

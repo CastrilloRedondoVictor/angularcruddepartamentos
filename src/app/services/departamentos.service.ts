@@ -39,4 +39,10 @@ export class DepartamentosService {
 
     return this.http.put(environment.apiDepartamentos + request, JSON.stringify(departamento), {headers: header})
   }
+
+
+  deleteDepartamento(id: number): Observable<any> {
+    let request = 'api/Departamentos/' + id
+    return this.http.delete(environment.apiDepartamentos + request)
+  }
 }

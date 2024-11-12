@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Departamento } from '../../models/Departamento';
 import { DepartamentosService } from '../../services/departamentos.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-post-departamento',
@@ -24,9 +25,9 @@ export class PostDepartamentoComponent {
 
 
   postDepartamento() {
-    console.log(this.departamento)
     if (this.departamento.idDepartamento && this.departamento.nombre && this.departamento.localidad) {
       this._departamentosService.postDepartamento(this.departamento).subscribe(() => {
+        Swal.fire('¡Añadido!', 'El departamento ha sido añadido.', 'success');
         this.router.navigate([''])
       })
     } else {

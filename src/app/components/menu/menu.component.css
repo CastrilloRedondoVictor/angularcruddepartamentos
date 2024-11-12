@@ -1,0 +1,52 @@
+/* Estilo de la barra de navegación */
+.navbar {
+  background-color: #007bff; /* Azul para el fondo de la navbar */
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Tamaño de la fuente para el nombre de la marca */
+  font-weight: 700; /* Negrita para mayor énfasis */
+  color: white !important; /* Asegura que el texto sea blanco */
+}
+
+.navbar-nav .nav-link {
+  color: white; /* Texto blanco por defecto */
+  font-weight: 600; /* Peso de la fuente para los enlaces */
+  text-transform: capitalize; /* Primeras letras en mayúsculas */
+  padding: 8px 15px; /* Espaciado más cómodo para los enlaces */
+}
+
+/* Efecto hover en los enlaces */
+.navbar-nav .nav-link:hover {
+  background-color: #0056b3; /* Azul oscuro al pasar el mouse */
+  color: white; /* Asegura que el texto siga siendo blanco */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Enlace activo */
+.navbar-nav .nav-link.active {
+  background-color: #0056b3; /* Azul oscuro para el enlace activo */
+  border-radius: 5px;
+}
+
+/* Asegurarse de que la navbar se mantenga en la parte superior */
+.navbar.fixed-top {
+  z-index: 1030; /* Asegura que siempre se quede arriba de otros elementos */
+}
+
+/* Botón de menú móvil */
+.navbar-toggler {
+  border-color: #fff; /* Botón con borde blanco */
+}
+
+.navbar-toggler-icon {
+  background-color: #fff; /* Icono de la hamburguesa en blanco */
+}
+
+/* Navbar en pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    padding: 10px; /* Aumentar el tamaño de los enlaces en pantallas pequeñas */
+  }
+}

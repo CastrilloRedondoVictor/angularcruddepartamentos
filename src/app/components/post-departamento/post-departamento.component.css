@@ -1,0 +1,12 @@
+/* Estilo para los mensajes de error */
+.invalid-feedback {
+  display: block; /* Asegura que los mensajes de error se muestren */
+  font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+  color: #dc3545; /* Color rojo para el texto de error */
+}
+
+/* Añadir borde rojo a los campos inválidos */
+.is-invalid {
+  border-color: #dc3545 !important;
+  background-color: #f8d7da !important;
+}
